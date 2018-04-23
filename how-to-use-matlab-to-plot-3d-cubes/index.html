@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/uploads/manifest.json">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Programming,MATLAB,Plot," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jialun Liu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="GoalsIn order to present 3-D matrix data, sometimes it is better to draw some cubes with specified dimensions. But the plot functions in MATLAB cannot directly fulfil this goal. Here is one proper sol">
+<meta name="keywords" content="Programming,MATLAB,Plot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Use MATLAB to Plot 3D Cubes">
+<meta property="og:url" content="http://jialunliu.com/how-to-use-matlab-to-plot-3d-cubes/index.html">
+<meta property="og:site_name" content="Jialun Liu">
+<meta property="og:description" content="GoalsIn order to present 3-D matrix data, sometimes it is better to draw some cubes with specified dimensions. But the plot functions in MATLAB cannot directly fulfil this goal. Here is one proper sol">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-11-21T17:37:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Use MATLAB to Plot 3D Cubes">
+<meta name="twitter:description" content="GoalsIn order to present 3-D matrix data, sometimes it is better to draw some cubes with specified dimensions. But the plot functions in MATLAB cannot directly fulfil this goal. Here is one proper sol">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jialunliu.com/how-to-use-matlab-to-plot-3d-cubes/"/>
+
+
+
+
+
+  <title>How to Use MATLAB to Plot 3D Cubes | Jialun Liu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jialun Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Apply CFD Tools into Ship Manoeuvirng Simulations by Python 3</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-research">
+          <a href="/research/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-university"></i> <br />
+            
+            research
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jialunliu.com/how-to-use-matlab-to-plot-3d-cubes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jialun Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jialun Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">How to Use MATLAB to Plot 3D Cubes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-12-02T23:13:30+08:00">
+                2014-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/matlab/" itemprop="url" rel="index">
+                    <span itemprop="name">MATLAB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h2><p>In order to present 3-D matrix data, sometimes it is better to draw some cubes with specified dimensions. But the plot functions in MATLAB cannot directly fulfil this goal. Here is one proper solution based on the integrated function <code>patch</code> in MATLAB.</p>
+<a id="more"></a>
+<h2 id="The-control-file"><a href="#The-control-file" class="headerlink" title="The control file"></a>The control file</h2><p>The control file is used to call the cube_plot.m function. You may define the origin point and the dimension for the cube. You may also plot more cubes to present 3-dimension data.</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clf;</span><br><span class="line">figure(<span class="number">1</span>);</span><br><span class="line"><span class="comment">% Use hold on and hold off to plot multiple cubes</span></span><br><span class="line">hold on;</span><br><span class="line"><span class="comment">% Call the function to plot a cube with dimension of X, Y, Z, at point [x,y,z].</span></span><br><span class="line">cube_plot([<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>],<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="string">'r'</span>);</span><br><span class="line"><span class="comment">% Figure configurations</span></span><br><span class="line"><span class="comment">% Define the range of x-axis, y-axis, and z-axis in form of</span></span><br><span class="line"><span class="comment">% [xmin,xmax,ymin,ymax,zmin,zmax].</span></span><br><span class="line"><span class="comment">% axis([0,1,0,1,0,1]);</span></span><br><span class="line"><span class="comment">% Set the axis with equal unit.</span></span><br><span class="line">axis equal;</span><br><span class="line"><span class="comment">% Show grids on the plot</span></span><br><span class="line">grid on;</span><br><span class="line"><span class="comment">% Set the lable and the font size</span></span><br><span class="line">xlabel(<span class="string">'X'</span>,<span class="string">'FontSize'</span>,<span class="number">18</span>);</span><br><span class="line">ylabel(<span class="string">'Y'</span>,<span class="string">'FontSize'</span>,<span class="number">18</span>)</span><br><span class="line">zlabel(<span class="string">'Z'</span>,<span class="string">'FontSize'</span>,<span class="number">18</span>)</span><br><span class="line"><span class="comment">% Control the ticks on the axises</span></span><br><span class="line">h = gca; <span class="comment">% Get the handle of the figure</span></span><br><span class="line"><span class="comment">% h.XTick = 0:0.5:1;</span></span><br><span class="line"><span class="comment">% h.YTick = 0:0.5:1;</span></span><br><span class="line"><span class="comment">% h.ZTick = 0:0.5:1;</span></span><br><span class="line"><span class="comment">% Set the color as transparient</span></span><br><span class="line">material metal</span><br><span class="line">alpha(<span class="string">'color'</span>);</span><br><span class="line">alphamap(<span class="string">'rampup'</span>);</span><br><span class="line"><span class="comment">% Set the view point</span></span><br><span class="line">view(<span class="number">30</span>,<span class="number">30</span>);</span><br><span class="line">hold off;</span><br><span class="line"><span class="comment">% plot the figure in the form of eps with 600 ppi named 'filename'</span></span><br><span class="line"><span class="comment">% print(gcf,'-depsc2','-r600','filename.eps')</span></span><br></pre></td></tr></table></figure>
+<h2 id="The-cube-plot-m-function"><a href="#The-cube-plot-m-function" class="headerlink" title="The cube_plot.m function"></a>The cube_plot.m function</h2><p>Save the following code as <code>cube_plot.m</code></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cube_plot</span><span class="params">(origin,X,Y,Z,color)</span></span></span><br><span class="line"><span class="comment">% CUBE_PLOT plots a cube with dimension of X, Y, Z.</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% INPUTS:</span></span><br><span class="line"><span class="comment">% origin = set origin point for the cube in the form of [x,y,z].</span></span><br><span class="line"><span class="comment">% X      = cube length along x direction.</span></span><br><span class="line"><span class="comment">% Y      = cube length along y direction.</span></span><br><span class="line"><span class="comment">% Z      = cube length along z direction.</span></span><br><span class="line"><span class="comment">% color  = STRING, the color patched for the cube.</span></span><br><span class="line"><span class="comment">%         List of colors</span></span><br><span class="line"><span class="comment">%         b blue</span></span><br><span class="line"><span class="comment">%         g green</span></span><br><span class="line"><span class="comment">%         r red</span></span><br><span class="line"><span class="comment">%         c cyan</span></span><br><span class="line"><span class="comment">%         m magenta</span></span><br><span class="line"><span class="comment">%         y yellow</span></span><br><span class="line"><span class="comment">%         k black</span></span><br><span class="line"><span class="comment">%         w white</span></span><br><span class="line"><span class="comment">% OUPUTS:</span></span><br><span class="line"><span class="comment">% Plot a figure in the form of cubics.</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% EXAMPLES</span></span><br><span class="line"><span class="comment">% cube_plot(2,3,4,'red')</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% ------------------------------Code Starts Here------------------------------ %</span></span><br><span class="line"><span class="comment">% Define the vertexes of the unit cubic</span></span><br><span class="line"></span><br><span class="line">ver = [<span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span> <span class="number">1</span> <span class="number">1</span>;</span><br><span class="line">    <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>;</span><br><span class="line">    <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;</span><br><span class="line">    <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>;</span><br><span class="line">    <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">%  Define the faces of the unit cubic</span></span><br><span class="line">fac = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>;</span><br><span class="line">    <span class="number">4</span> <span class="number">3</span> <span class="number">5</span> <span class="number">6</span>;</span><br><span class="line">    <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">5</span>;</span><br><span class="line">    <span class="number">1</span> <span class="number">2</span> <span class="number">8</span> <span class="number">7</span>;</span><br><span class="line">    <span class="number">6</span> <span class="number">7</span> <span class="number">1</span> <span class="number">4</span>;</span><br><span class="line">    <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span>];</span><br><span class="line"></span><br><span class="line">cube = [ver(:,<span class="number">1</span>)*X+origin(<span class="number">1</span>),ver(:,<span class="number">2</span>)*Y+origin(<span class="number">2</span>),ver(:,<span class="number">3</span>)*Z+origin(<span class="number">3</span>)];</span><br><span class="line">patch(<span class="string">'Faces'</span>,fac,<span class="string">'Vertices'</span>,cube,<span class="string">'FaceColor'</span>,color);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% ------------------------------Code Ends Here-------------------------------- %</span></span><br></pre></td></tr></table></figure>
+<p>That is it.<br>Cheers!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/programming/" rel="tag"># Programming</a>
+          
+            <a href="/tags/matlab/" rel="tag"># MATLAB</a>
+          
+            <a href="/tags/plot/" rel="tag"># Plot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/git-for-beginners/" rel="next" title="Git for Beginners">
+                <i class="fa fa-chevron-left"></i> Git for Beginners
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/matlab-naming-conventions/" rel="prev" title="MATLAB Naming Conventions">
+                MATLAB Naming Conventions <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Jialun Liu" />
+            
+              <p class="site-author-name" itemprop="name">Jialun Liu</p>
+              <p class="site-description motion-element" itemprop="description">Jialun Liu's blog | CFD | Ship Manoeuvrability |</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Goals"><span class="nav-number">1.</span> <span class="nav-text">Goals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-control-file"><span class="nav-number">2.</span> <span class="nav-text">The control file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-cube-plot-m-function"><span class="nav-number">3.</span> <span class="nav-text">The cube_plot.m function</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-ship"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jialun Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/uploads/manifest.json">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Programming,Git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jialun Liu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="I am quite new to Git. I just would like to have something simple to control my configuration files, and paper drafts. And I think Git is the perfect thing to apply. It might be a little bit painful t">
+<meta name="keywords" content="Programming,Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git for Beginners">
+<meta property="og:url" content="http://jialunliu.com/git-for-beginners/index.html">
+<meta property="og:site_name" content="Jialun Liu">
+<meta property="og:description" content="I am quite new to Git. I just would like to have something simple to control my configuration files, and paper drafts. And I think Git is the perfect thing to apply. It might be a little bit painful t">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-11-21T17:38:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git for Beginners">
+<meta name="twitter:description" content="I am quite new to Git. I just would like to have something simple to control my configuration files, and paper drafts. And I think Git is the perfect thing to apply. It might be a little bit painful t">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jialunliu.com/git-for-beginners/"/>
+
+
+
+
+
+  <title>Git for Beginners | Jialun Liu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jialun Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Apply CFD Tools into Ship Manoeuvirng Simulations by Python 3</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-research">
+          <a href="/research/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-university"></i> <br />
+            
+            research
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jialunliu.com/git-for-beginners/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jialun Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jialun Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git for Beginners</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-11-29T13:04:13+08:00">
+                2014-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>I am quite new to Git. I just would like to have something simple to control my configuration files, and paper drafts. And I think Git is the perfect thing to apply. It might be a little bit painful to learn, but you will be paid back. When I started, I searched a lot for what I should do. So, after a while, I put some notes here as Git for beginners. Hopefully, it can help you to learn Git more quickly and get rid of the annoying lost of control in your files.</p>
+<a id="more"></a>
+<h2 id="Git-Resources"><a href="#Git-Resources" class="headerlink" title="Git Resources"></a>Git Resources</h2><p>I heard about Git for quite a long time, but I never used it. Until one day, I met this open course <a href="https://www.udacity.com/course/ud775" target="_blank" rel="noopener">How to Use Git and GitHub</a>. It is short and compact for you to have a nice start. You may also know some logic theory in the application of Git through this course. So, if you have time, take it.</p>
+<ul>
+<li>You may visit the official website of <a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a>, where you can download the latest version of Git and other useful information.</li>
+<li>You may find nice information about the git commands from <a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf" target="_blank" rel="noopener">Git Cheat Sheet from GitHub</a> and <a href="http://www.git-tower.com/blog/git-cheat-sheet-detail/" target="_blank" rel="noopener">Git Cheat Sheet from TOWER</a>. Actually they are two git control software you may use.</li>
+<li>However, for softwares, I highly recommend <a href="http://www.sourcetreeapp.com/" target="_blank" rel="noopener">Source Tree</a>. It is nice and support both Mac and Windows. Most of all, it is free.</li>
+<li>You can find more options about <a href="http://git-scm.com/download/gui/linux" target="_blank" rel="noopener">GUI clients</a>. With these clients, you can save yourself from the terminal and command lines.</li>
+</ul>
+<h2 id="Git-Configurations"><a href="#Git-Configurations" class="headerlink" title="Git Configurations"></a>Git Configurations</h2><h3 id="Set-your-“user-name”"><a href="#Set-your-“user-name”" class="headerlink" title="Set your “user name”."></a>Set your “user name”.</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">"user name"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Set-your-“user-email-address”"><a href="#Set-your-“user-email-address”" class="headerlink" title="Set your “user email address”"></a>Set your “user email address”</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.email <span class="string">"user email address"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Enable-the-colour-highlight-in-the-terminal-command-lines"><a href="#Enable-the-colour-highlight-in-the-terminal-command-lines" class="headerlink" title="Enable the colour highlight in the terminal command lines."></a>Enable the colour highlight in the terminal command lines.</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global color.ui auto</span><br></pre></td></tr></table></figure>
+<h2 id="Common-Commands"><a href="#Common-Commands" class="headerlink" title="Common Commands"></a>Common Commands</h2><h3 id="Create-an-empty-folder-named-“XX”"><a href="#Create-an-empty-folder-named-“XX”" class="headerlink" title="Create an empty folder named “XX”."></a>Create an empty folder named “XX”.</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir XX</span><br></pre></td></tr></table></figure>
+<h3 id="Print-out-your-current-path-in-the-terminal"><a href="#Print-out-your-current-path-in-the-terminal" class="headerlink" title="Print out your current path in the terminal."></a>Print out your current path in the terminal.</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+<h2 id="Git-commands"><a href="#Git-commands" class="headerlink" title="Git commands"></a>Git commands</h2><h3 id="Initialise"><a href="#Initialise" class="headerlink" title="Initialise"></a>Initialise</h3><p>Initialise a repository in the current folder named <em>.git</em>, which is commonly invisible. Beginners would better not touch this file unless you know what you are doing.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h3 id="Clone"><a href="#Clone" class="headerlink" title="Clone"></a>Clone</h3><p>Clone an existing repository from web server at “url”, for instance, GitHub.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> <span class="string">"url"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Add-changes"><a href="#Add-changes" class="headerlink" title="Add changes"></a>Add changes</h3><p>Add the changes related to file “XX” into the temporary staging area.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add XX</span><br></pre></td></tr></table></figure>
+<h3 id="Commit"><a href="#Commit" class="headerlink" title="Commit"></a>Commit</h3><p>Commit the changes you have just made. It is recommended to commit for each logical change.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m <span class="string">"Commit content"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Check-status"><a href="#Check-status" class="headerlink" title="Check status"></a>Check status</h3><p>Check the status of your repository. You may find how many files are changed in the temporary staging area.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+<h3 id="Compare-differences"><a href="#Compare-differences" class="headerlink" title="Compare differences"></a>Compare differences</h3><p>Compare the differences between file1 and file2. You may directly use <code>git diff filename</code> to see the latest changes of “filename”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff file1 file2</span><br></pre></td></tr></table></figure>
+<h3 id="Check-history"><a href="#Check-history" class="headerlink" title="Check history"></a>Check history</h3><p>Check the history from the newest to the oldest.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<h3 id="Reset-after"><a href="#Reset-after" class="headerlink" title="Reset after"></a>Reset after</h3><p>Undo all commits after “commit number”. But all the changes are still locally stored.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset <span class="string">"commit number"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Reset-all"><a href="#Reset-all" class="headerlink" title="Reset all"></a>Reset all</h3><p>Discard all the changes and reset the files best to the “commit number”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard <span class="string">"commit number"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Reset-to-latest"><a href="#Reset-to-latest" class="headerlink" title="Reset to latest"></a>Reset to latest</h3><p>Reset files back to the last version. If you would like to reset your files to the last n version, you may use <code>git reset --hard HEAD~n</code>.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br><span class="line">git reset --hard HEAD~</span><br></pre></td></tr></table></figure>
+<h3 id="Delete-git-and-local"><a href="#Delete-git-and-local" class="headerlink" title="Delete git and local"></a>Delete git and local</h3><p>Delete the file named “XX”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm XX</span><br></pre></td></tr></table></figure>
+<h3 id="Delete-git-but-keep-local"><a href="#Delete-git-but-keep-local" class="headerlink" title="Delete git but keep local"></a>Delete git but keep local</h3><p>Remove the file named “XX” from the version control but keep it in local.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rm --cached <span class="string">"XX"</span></span><br></pre></td></tr></table></figure>
+<h3 id="List-a-branch"><a href="#List-a-branch" class="headerlink" title="List a branch"></a>List a branch</h3><p>List all branches in the current repository.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+<h3 id="Create-a-new-branch"><a href="#Create-a-new-branch" class="headerlink" title="Create a new branch"></a>Create a new branch</h3><p>Create a new branch for development named “XX”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch <span class="string">"XX"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Switch-to-a-branch"><a href="#Switch-to-a-branch" class="headerlink" title="Switch to a branch"></a>Switch to a branch</h3><p>Switch to the specified branch named “XX”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout <span class="string">"XX"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Create-and-switch-to-a-new-branch"><a href="#Create-and-switch-to-a-new-branch" class="headerlink" title="Create and switch to a new branch"></a>Create and switch to a new branch</h3><p>Crate and switch to a new branch named “XX”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b <span class="string">"XX"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Delete-a-branch"><a href="#Delete-a-branch" class="headerlink" title="Delete a branch"></a>Delete a branch</h3><p>Delete a branch named “XX”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -d XX</span><br></pre></td></tr></table></figure>
+<h3 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h3><p>Merge two branches.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git merge file1 file2</span><br></pre></td></tr></table></figure>
+<h3 id="Add-a-remote-repository"><a href="#Add-a-remote-repository" class="headerlink" title="Add a remote repository"></a>Add a remote repository</h3><p>Add a remote repository, which could be your GitHub.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin https://github.com/jialunliu/XXX</span><br></pre></td></tr></table></figure>
+<h3 id="Check-the-remote-repository"><a href="#Check-the-remote-repository" class="headerlink" title="Check the remote repository"></a>Check the remote repository</h3><p>Check status of your remote repository.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote</span><br></pre></td></tr></table></figure>
+<h3 id="Push"><a href="#Push" class="headerlink" title="Push"></a>Push</h3><p>Push your master branch to the remote repository. You have to add <code>-u</code> for the first push, after which you can move it.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push –u origin master</span><br></pre></td></tr></table></figure>
+<h3 id="Clone-from-a-remote-repository"><a href="#Clone-from-a-remote-repository" class="headerlink" title="Clone from a remote repository"></a>Clone from a remote repository</h3><p>Clone one existing repository form the remote server.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/jialunliu/XXX</span><br></pre></td></tr></table></figure>
+<h3 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h3><p>If you want to leave the temporary files for now and come back later for comments, you may use the <code>stash</code>.</p>
+<p>You may hide the current files with:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>You may see all the hidden files with:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+<p>You may recover the stashed files without deleting them with:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git stash apply</span><br></pre></td></tr></table></figure>
+<p>You may delete the stashed files with:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git stash drop</span><br></pre></td></tr></table></figure>
+<p>You may recover and delete the files with:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+<h3 id="Ignore"><a href="#Ignore" class="headerlink" title="Ignore"></a>Ignore</h3><p>If you want to ignore some files, for example the latex related files, you can edit the “.gitignore” file. Add lines of the file type that you do not want to commit in that file.</p>
+<p>So, that is it. Now you are not a green hand any more. Say goodbye to “beginner”.</p>
+<p>That is it.<br>Cheers!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/programming/" rel="tag"># Programming</a>
+          
+            <a href="/tags/git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/how-to-use-matlab-to-plot-3d-cubes/" rel="prev" title="How to Use MATLAB to Plot 3D Cubes">
+                How to Use MATLAB to Plot 3D Cubes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Jialun Liu" />
+            
+              <p class="site-author-name" itemprop="name">Jialun Liu</p>
+              <p class="site-description motion-element" itemprop="description">Jialun Liu's blog | CFD | Ship Manoeuvrability |</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Resources"><span class="nav-number">1.</span> <span class="nav-text">Git Resources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Configurations"><span class="nav-number">2.</span> <span class="nav-text">Git Configurations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-your-“user-name”"><span class="nav-number">2.1.</span> <span class="nav-text">Set your “user name”.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-your-“user-email-address”"><span class="nav-number">2.2.</span> <span class="nav-text">Set your “user email address”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Enable-the-colour-highlight-in-the-terminal-command-lines"><span class="nav-number">2.3.</span> <span class="nav-text">Enable the colour highlight in the terminal command lines.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-Commands"><span class="nav-number">3.</span> <span class="nav-text">Common Commands</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-an-empty-folder-named-“XX”"><span class="nav-number">3.1.</span> <span class="nav-text">Create an empty folder named “XX”.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Print-out-your-current-path-in-the-terminal"><span class="nav-number">3.2.</span> <span class="nav-text">Print out your current path in the terminal.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-commands"><span class="nav-number">4.</span> <span class="nav-text">Git commands</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Initialise"><span class="nav-number">4.1.</span> <span class="nav-text">Initialise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone"><span class="nav-number">4.2.</span> <span class="nav-text">Clone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-changes"><span class="nav-number">4.3.</span> <span class="nav-text">Add changes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Commit"><span class="nav-number">4.4.</span> <span class="nav-text">Commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check-status"><span class="nav-number">4.5.</span> <span class="nav-text">Check status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compare-differences"><span class="nav-number">4.6.</span> <span class="nav-text">Compare differences</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check-history"><span class="nav-number">4.7.</span> <span class="nav-text">Check history</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reset-after"><span class="nav-number">4.8.</span> <span class="nav-text">Reset after</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reset-all"><span class="nav-number">4.9.</span> <span class="nav-text">Reset all</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reset-to-latest"><span class="nav-number">4.10.</span> <span class="nav-text">Reset to latest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete-git-and-local"><span class="nav-number">4.11.</span> <span class="nav-text">Delete git and local</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete-git-but-keep-local"><span class="nav-number">4.12.</span> <span class="nav-text">Delete git but keep local</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-a-branch"><span class="nav-number">4.13.</span> <span class="nav-text">List a branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-branch"><span class="nav-number">4.14.</span> <span class="nav-text">Create a new branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Switch-to-a-branch"><span class="nav-number">4.15.</span> <span class="nav-text">Switch to a branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-and-switch-to-a-new-branch"><span class="nav-number">4.16.</span> <span class="nav-text">Create and switch to a new branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete-a-branch"><span class="nav-number">4.17.</span> <span class="nav-text">Delete a branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge"><span class="nav-number">4.18.</span> <span class="nav-text">Merge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-a-remote-repository"><span class="nav-number">4.19.</span> <span class="nav-text">Add a remote repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check-the-remote-repository"><span class="nav-number">4.20.</span> <span class="nav-text">Check the remote repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Push"><span class="nav-number">4.21.</span> <span class="nav-text">Push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clone-from-a-remote-repository"><span class="nav-number">4.22.</span> <span class="nav-text">Clone from a remote repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stash"><span class="nav-number">4.23.</span> <span class="nav-text">Stash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ignore"><span class="nav-number">4.24.</span> <span class="nav-text">Ignore</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-ship"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jialun Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

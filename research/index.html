@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/uploads/manifest.json">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content=",," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jialun Liu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Guidance on Inland Ship Manoeuvrability from the Perspective of Rudder ConfigurationsBy Jialun Liu AbstractThis project is intended to achieve knowledge of designing a well manoeuvrable inland ship wi">
+<meta name="keywords" content="Research,PhD">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PhD Project">
+<meta property="og:url" content="http://jialunliu.com/research/index.html">
+<meta property="og:site_name" content="Jialun Liu">
+<meta property="og:description" content="Guidance on Inland Ship Manoeuvrability from the Perspective of Rudder ConfigurationsBy Jialun Liu AbstractThis project is intended to achieve knowledge of designing a well manoeuvrable inland ship wi">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://jialunliu.com/research/typical_inland_vessel.jpg">
+<meta property="og:updated_time" content="2016-11-06T19:37:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PhD Project">
+<meta name="twitter:description" content="Guidance on Inland Ship Manoeuvrability from the Perspective of Rudder ConfigurationsBy Jialun Liu AbstractThis project is intended to achieve knowledge of designing a well manoeuvrable inland ship wi">
+<meta name="twitter:image" content="http://jialunliu.com/research/typical_inland_vessel.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jialunliu.com/research/"/>
+
+
+
+
+
+  <title>PhD Project | Jialun Liu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jialun Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Apply CFD Tools into Ship Manoeuvirng Simulations by Python 3</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-research">
+          <a href="/research/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-university"></i> <br />
+            
+            research
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">PhD Project</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="Guidance-on-Inland-Ship-Manoeuvrability-from-the-Perspective-of-Rudder-Configurations"><a href="#Guidance-on-Inland-Ship-Manoeuvrability-from-the-Perspective-of-Rudder-Configurations" class="headerlink" title="Guidance on Inland Ship Manoeuvrability from the Perspective of Rudder Configurations"></a>Guidance on Inland Ship Manoeuvrability from the Perspective of Rudder Configurations</h1><p>By Jialun Liu</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>This project is intended to achieve knowledge of designing a well manoeuvrable inland ship with low fuel consumption. Compared to the economic concerns in ship design, ship manoeuvrability, which is closely related to navigation safety, is commonly less considered. In fact, a well manoeuvrable ship can make shipping companies benefit from improving operational performances, reducing cost of training, reducing downtime for repairs or modifications, and so on. Furthermore, research on inland ships, which have more complex ship configurations and navigation environment than sea-going ships, is even less. On the other hand, rudders as the main steering devices have a large impact on ship manoeuvring performance and fuel consumption. Unlike sea-going ships, inland vessels may have plenty options of rudder configurations. In this project, a systematic approach is going to be developed for analysing the impacts of rudder particulars, such as the profile, the number of rudders, and the aspect ratio, on manoeuvring capacity and fuel consumption.</p>
+<h2 id="Guidance"><a href="#Guidance" class="headerlink" title="Guidance"></a>Guidance</h2><p>Primarily, ships are designed from an economical point of view focusing on the transport efficiency and construction cost, but manoeuvrability, including the capability of inland navigation on lakes, rivers, and artificial waterways which are limited in size by width and depth of the channel, is also very important. In order to ensure navigation safety and smooth traffic, manoeuvrability prediction and evaluation methods are needed for designers to make trade-off of ship configurations. Guidance in this case is developed for naval architects to achieve certain goals, such as high transport capacity, high speed, or low fuel consumption, rather than giving the overall optimal design, which should be evaluated by different weights of impact factors.</p>
+<h1 id="Inland-ship-manoeuvrability"><a href="#Inland-ship-manoeuvrability" class="headerlink" title="Inland ship manoeuvrability"></a>Inland ship manoeuvrability</h1><p>Ship manoeuvrability is mainly determined by the navigation environment and ship particulars. Unlike sea-going ships in deep open sea, inland vessels sail in waterways constrained in water depth and channel width, which lead to strong ship-ship interactions and ship-bank interactions. Due to the limits of waterways, inland ship main dimensions, such as length, beam, draft, and block coefficient, are commonly fixed to each waterway class. However, in order to improve the performance in shallow water, more concerns are put in propulsion units (propellers and rudders) and the stern design (stern forms and hull tunnels).</p>
+<h2 id="Rudder-configurations"><a href="#Rudder-configurations" class="headerlink" title="Rudder configurations"></a>Rudder configurations</h2><p>Rudders as the main steering devices determine the turning related manoeuvring capacity and course keeping ability under various disturbances, such as wind and currants. Rudder configurations include number of rudders, chord-wise profiles, rudder size (chord and span), aspect ratios, rudder area, taper ratio, sweep angle, transverse distance between twin rudders or multiple rudders, and longitudinal distance from the rudders to the propellers. All these parameters are mainly considered to obtain a high lift to drag ratio for sufficient turning forces and low rudder induced resistance. Considerations on the rudder cavitation, structure strength, and steering mechanics are also needed for a practical rudder configuration. There is no rudder suitable for all sailing conditions. Due to the shallow inland waterways, inland vessel rudders are limited in the span (about 0.7 to 1 of the propeller diameter). In order to generate sufficient turning forces at cruise speed and direct flow to side-way at slow speed, multiple rudder configurations are more popular for inland vessels than sea-going ships. Little information is publicly available for rudder design. Actually, a systematic approach is needed to analyse the impacts of rudder configurations on manoeuvring performance and rudder caused fuel consumption.</p>
+<p><img src="/research/typical_inland_vessel.jpg" alt="An inland ship stern configuration with a hull tunnel, duct propellers, and multiple Schilling rudders"></p>
+<h2 id="Research-approach"><a href="#Research-approach" class="headerlink" title="Research approach"></a>Research approach</h2><p>The research is mainly divided into four parts:</p>
+<ul>
+<li><p>Part I: Establish the relationship between inland ship particulars with manoeuvrability. For this part, the goal is to adapt the existing manoeuvring model to shallow water manoeuvring simulations, considering the ship main dimensions, length, beam, and draft. effects on hydrodynamic forces. A modular mathematical model will be applied expressing forces and moments induced by the hull, propellers, and rudders.</p>
+</li>
+<li><p>Part II: Systematically analyse rudder configuration effects on lift and drag forces. Due to the high cost and scale factor impacts of model tests, RANS simulations through commercial CFD code ANSYS Fluent will be applied. First, 2D calculations will be carried for typical inland rudder profiles, i.e. single plate, NACA series, IFS series, wedge tail, and Schilling rudders. Secondly, analysis on twin-rudder system with different transverse distance under various attack angles will be made. After that, research will be continued to 3D analysis considering the shallow water impacts, that is to say the clearance between tip rudder plate and the water bottom, and the clearance between the top plate and the free surface. Open water tests will be made as validation materials. With this study, a database or regression formulas may be gained.</p>
+</li>
+<li><p>Part III: Overall evaluate the rudder performance. After the research on rudders, the manoeuvring model established in Part I would be improved. The model then will be suitable for inland vessels with various rudder configurations at slow speed sailing in shallow water. Considering that ship manoeuvrability affecting the navigation safety has to be first satisfied, some acceptable rudder configurations would pop up. Then, comparisons of the rudder-induced resistance will be made to search for the final rudder configuration.</p>
+</li>
+<li><p>Part IV: Generate guidance on rudder. After above-mentioned procedures, general guidance can be concluded for designers. As the only existing rudder area estimation method is given by DNV (Rules for the Classification of Steel Ships - November 2004 edition) for sea-going ships, one of the research goals is a rudder area estimation tool for inland ships.</p>
+</li>
+</ul>
+<h2 id="Suggestions"><a href="#Suggestions" class="headerlink" title="Suggestions"></a>Suggestions</h2><p>Further research in this field could involve the propeller-rudder interactions, and furthermore hull-propeller-rudder interactions. These interactions not only affect the generated rudder forces, but also seriously impact the ship wake, propulsion efficiency, and cavitation characteristics.</p>
+<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>Jialun Liu, PhD Candidate, <a href="mailto:j.liu@tudelft.nl" target="_blank" rel="noopener">j.liu@tudelft.nl</a>.</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Jialun Liu" />
+            
+              <p class="site-author-name" itemprop="name">Jialun Liu</p>
+              <p class="site-description motion-element" itemprop="description">Jialun Liu's blog | CFD | Ship Manoeuvrability |</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Guidance-on-Inland-Ship-Manoeuvrability-from-the-Perspective-of-Rudder-Configurations"><span class="nav-number">1.</span> <span class="nav-text">Guidance on Inland Ship Manoeuvrability from the Perspective of Rudder Configurations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Guidance"><span class="nav-number">1.2.</span> <span class="nav-text">Guidance</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inland-ship-manoeuvrability"><span class="nav-number">2.</span> <span class="nav-text">Inland ship manoeuvrability</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rudder-configurations"><span class="nav-number">2.1.</span> <span class="nav-text">Rudder configurations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Research-approach"><span class="nav-number">2.2.</span> <span class="nav-text">Research approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Suggestions"><span class="nav-number">2.3.</span> <span class="nav-text">Suggestions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contact"><span class="nav-number">2.4.</span> <span class="nav-text">Contact</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-ship"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jialun Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

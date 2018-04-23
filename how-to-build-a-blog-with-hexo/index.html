@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/uploads/manifest.json">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Hexo,Blog,Markdown," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jialun Liu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="安装准备在安装 Hexo 前，需要安装 Node.js 和 Git, 详见 Hexo 官方网站。 安装 Hexo利用 nvm 安装 Hexo。 sudo npm install -g --unsafe-perm hexo-cli">
+<meta name="keywords" content="Hexo,Blog,Markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 Hexo 部署个人博客">
+<meta property="og:url" content="http://jialunliu.com/how-to-build-a-blog-with-hexo/index.html">
+<meta property="og:site_name" content="Jialun Liu">
+<meta property="og:description" content="安装准备在安装 Hexo 前，需要安装 Node.js 和 Git, 详见 Hexo 官方网站。 安装 Hexo利用 nvm 安装 Hexo。 sudo npm install -g --unsafe-perm hexo-cli">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-04-16T05:00:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用 Hexo 部署个人博客">
+<meta name="twitter:description" content="安装准备在安装 Hexo 前，需要安装 Node.js 和 Git, 详见 Hexo 官方网站。 安装 Hexo利用 nvm 安装 Hexo。 sudo npm install -g --unsafe-perm hexo-cli">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jialunliu.com/how-to-build-a-blog-with-hexo/"/>
+
+
+
+
+
+  <title>如何使用 Hexo 部署个人博客 | Jialun Liu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jialun Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Apply CFD Tools into Ship Manoeuvirng Simulations by Python 3</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-research">
+          <a href="/research/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-university"></i> <br />
+            
+            research
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jialunliu.com/how-to-build-a-blog-with-hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jialun Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jialun Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何使用 Hexo 部署个人博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-15T22:00:15+08:00">
+                2016-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h2><p>在安装 Hexo 前，需要安装 <code>Node.js</code> 和 <code>Git</code>, 详见 <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo 官方网站</a>。</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>利用 <code>nvm</code> 安装 <code>Hexo</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install -g --unsafe-perm hexo-cli</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="WordPress-迁移到-Hexo"><a href="#WordPress-迁移到-Hexo" class="headerlink" title="WordPress 迁移到 Hexo"></a>WordPress 迁移到 Hexo</h2><h3 id="导出-WordPress"><a href="#导出-WordPress" class="headerlink" title="导出 WordPress"></a>导出 WordPress</h3><p>WordPress &gt; Tools &gt; Export</p>
+<h3 id="安装-Hexo-插件"><a href="#安装-Hexo-插件" class="headerlink" title="安装 Hexo 插件"></a>安装 Hexo 插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-migrator-wordpress --save</span><br></pre></td></tr></table></figure>
+<h2 id="Hexo-命令"><a href="#Hexo-命令" class="headerlink" title="Hexo 命令"></a>Hexo 命令</h2><p>注意设置文件中，# 号后为注释。</p>
+<h3 id="完整命令"><a href="#完整命令" class="headerlink" title="完整命令"></a>完整命令</h3><p>完整的 <code>Hexo</code> 命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean <span class="comment"># 清理已经生成的动态文件</span></span><br><span class="line">hexo server <span class="comment"># 在端口 `http://localhost:4000/` 查看</span></span><br><span class="line">hexo server --debug <span class="comment"># Debug 模式</span></span><br><span class="line">hexo generate  <span class="comment"># 生成动态网站</span></span><br><span class="line">hexo deploy <span class="comment"># 发布网站</span></span><br><span class="line">hexo generate --deploy <span class="comment"># 生成并发布</span></span><br></pre></td></tr></table></figure>
+<h3 id="快捷命令"><a href="#快捷命令" class="headerlink" title="快捷命令"></a>快捷命令</h3><p>快捷操作的 <code>Hexo</code> 省略命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo n <span class="comment"># 等同于 hexo new</span></span><br><span class="line">hexo s <span class="comment"># 等同于 hexo server</span></span><br><span class="line">hexo g <span class="comment"># 等同于 hexo generate</span></span><br><span class="line">hexo d <span class="comment"># 等同于 hexo deploy</span></span><br><span class="line">hexo g d <span class="comment"># 等同于 hexo generate --deploy</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">查看所有主题</a><br><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">查看本网站使用的 NexT 主题</a></p>
+<h3 id="安装-NexT-主题"><a href="#安装-NexT-主题" class="headerlink" title="安装 NexT 主题"></a>安装 NexT 主题</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<h3 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h3><ul>
+<li>主题中的 <code>categories</code> 和 <code>tags</code> 页面需要手动创建 <code>hexo new page &quot;categories</code> 和 <code>hexo new page &quot;tags&quot;</code></li>
+<li>After adding pages, the names of the pages should be defined in <code>/themes/next/languages/&#39;</code>.</li>
+<li><a href="http://zhiho.github.io/2015/09/29/hexo-next/" target="_blank" rel="noopener">如何使用主题</a></li>
+<li><a href="https://fortawesome.github.io/Font-Awesome/icons/" target="_blank" rel="noopener">图标集</a></li>
+</ul>
+<h2 id="网站发布"><a href="#网站发布" class="headerlink" title="网站发布"></a>网站发布</h2><h3 id="注册-GitHub"><a href="#注册-GitHub" class="headerlink" title="注册 GitHub"></a>注册 GitHub</h3><p><a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="noopener">生成 GitHub SSH key</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line"><span class="comment"># Lists the files in your .ssh directory, if they exist</span></span><br><span class="line">ls -al ~/.ssh</span><br><span class="line"><span class="comment"># Configure the user email</span></span><br><span class="line">git config --global user.email <span class="string">"allenlightman@qq.com"</span></span><br><span class="line"><span class="comment"># Configure the user name</span></span><br><span class="line">git config --global user.name <span class="string">"J.Liu"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></span><br><span class="line"><span class="comment"># Copies the contents of the id_rsa.pub file to your clipboard</span></span><br><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装发布到-GitHub-的插件"><a href="#安装发布到-GitHub-的插件" class="headerlink" title="安装发布到 GitHub 的插件"></a>安装发布到 GitHub 的插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h3 id="FTP"><a href="#FTP" class="headerlink" title="FTP"></a>FTP</h3><p>FTP 的布置可以参考 <a href="https://github.com/hexojs/hexo-deployer-ftpsync" target="_blank" rel="noopener">FTP deployer</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-ftpsync --save</span><br></pre></td></tr></table></figure>
+<p>不推荐使用这种模式发布，可以使用其他 FTP 工具将生成的网站直接上传到服务器上。</p>
+<h2 id="Configure-RSS-and-sitemap"><a href="#Configure-RSS-and-sitemap" class="headerlink" title="Configure RSS and sitemap"></a>Configure RSS and sitemap</h2><p>如何生成 RSS 以供他人订阅，请参见 <a href="http://bubbyroom.com/2013/08/11/migrate-my-blog-from-wordpress-to-hexo/" target="_blank" rel="noopener">Migrate My blog from WordPress to Hexo</a></p>
+<h3 id="RSS"><a href="#RSS" class="headerlink" title="RSS"></a>RSS</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<h2 id="添加-Sitemap"><a href="#添加-Sitemap" class="headerlink" title="添加 Sitemap"></a>添加 Sitemap</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+<p>在 <code>/_config.yml</code> 文件里，添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># plugins:</span></span><br><span class="line"><span class="comment">#   - hexo-generator-feed</span></span><br><span class="line"><span class="comment"># feed:</span></span><br><span class="line"><span class="comment">#   type: atom</span></span><br><span class="line"><span class="comment">#   path: atom.xml</span></span><br><span class="line"><span class="comment">#   limit: 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sitemap:</span></span><br><span class="line"><span class="comment">#   path: sitemap.xml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># baidusitemap:</span></span><br><span class="line"><span class="comment">#   path: baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><h3 id="写作命令"><a href="#写作命令" class="headerlink" title="写作命令"></a>写作命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt; <span class="comment"># General command format</span></span><br><span class="line">hexo new page <span class="string">"New page name"</span> <span class="comment"># Publish a new page</span></span><br><span class="line">hexo new draft <span class="string">"New draft name"</span> <span class="comment"># Draft a new post into _drafts</span></span><br><span class="line">hexo new post <span class="string">"New post name"</span> <span class="comment"># Publish a new post into _posts</span></span><br><span class="line">hexo publish post <span class="string">"Old draft name"</span> <span class="comment"># Publish a draft as a post</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><p>添加图片有绝对路径和相对路径两种方法，推荐使用绝对路径的方法，相较而言比较稳定。当然也可以使用图床链接的方式，暂不讨论。</p>
+<h4 id="绝对路径添加图片的方法"><a href="#绝对路径添加图片的方法" class="headerlink" title="绝对路径添加图片的方法"></a>绝对路径添加图片的方法</h4><p>将图片存放在 <code>source/images</code> 文件夹中，然后通过类似 <code>![](/images/image.jpg)</code> 来访问。</p>
+<h4 id="相对路径添加图片的方法"><a href="#相对路径添加图片的方法" class="headerlink" title="相对路径添加图片的方法"></a>相对路径添加图片的方法</h4><p>将 <code>_config.yml</code> 中 <code>post_asset_folder</code> 值改为 <code>true</code>，即 <code>post_asset_folder: true</code>。之后，每次新建 <code>post</code> 时，<code>Hexo</code> 会新建一个同 <code>post</code> 相同名的文件夹。此时，可以将相关资源放到这个相对文件夹中，然后通过 <code>![](/image.jpg)</code>来引用。</p>
+<h4 id="控制图片大小"><a href="#控制图片大小" class="headerlink" title="控制图片大小"></a>控制图片大小</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;img src=<span class="string">"./xxx.png"</span> width = <span class="string">"300"</span> height = <span class="string">"200"</span> alt=<span class="string">"图片名称"</span> align=center /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="添加新-layout"><a href="#添加新-layout" class="headerlink" title="添加新 layout"></a>添加新 layout</h3><p>Add <code>photo.md</code> into <code>scaffolds</code> with the following contnent. This would be a layout for photos.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">layout: &#123; &#123; layout &#125; &#125;</span><br><span class="line">title: &#123; &#123; title &#125; &#125;</span><br><span class="line">date: &#123; &#123; date &#125; &#125;</span><br><span class="line">tags:</span><br><span class="line">photos:</span><br><span class="line">-</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h3 id="文章摘要"><a href="#文章摘要" class="headerlink" title="文章摘要"></a>文章摘要</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">以上是摘要</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">以下是余下全文</span><br></pre></td></tr></table></figure>
+<h2 id="第三方支持"><a href="#第三方支持" class="headerlink" title="第三方支持"></a>第三方支持</h2><h3 id="LaTeX-数学公式"><a href="#LaTeX-数学公式" class="headerlink" title="LaTeX 数学公式"></a>LaTeX 数学公式</h3><p>启用主题中 <code>_config.yml</code> 的 <code>mathjax</code> 选项。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mathjax:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span><br></pre></td></tr></table></figure>
+<p>###<br>安装 <code>hexo-generator-searchdb</code>，在站点的根目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>编辑 站点配置文件，新增以下内容到任意位置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  <span class="built_in">limit</span>: 10000</span><br></pre></td></tr></table></figure>
+<h2 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h2><p>多说评论系统请参照<br><a href="http://zhiho.github.io/2015/09/29/hexo-next/" target="_blank" rel="noopener">如何添加多说评论</a></p>
+<h2 id="添加-RSS"><a href="#添加-RSS" class="headerlink" title="添加 RSS"></a>添加 RSS</h2><p><a href="http://zipperary.com/2013/06/02/hexo-guide-5/" target="_blank" rel="noopener">如何添加 RSS</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure>
+<p>如果遇到以下错误</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">FATAL (unknown path) [Line 7, Column 23]</span><br><span class="line">  Error: Unable to call `the <span class="built_in">return</span> value of (posts[<span class="string">"first"</span>])[<span class="string">"updated"</span>][<span class="string">"toISOStrin"</span>]`, <span class="built_in">which</span> is undefined or falsey</span><br></pre></td></tr></table></figure>
+<p>应注意，<code>public</code> 里至少要有一篇 <code>post</code> 才能够生成 RSS，否则会报错。<br><a href="http://fanyangkong.github.io/2016/03/06/%E8%81%8A%E8%81%8AHexo%E4%B8%8Enext/" target="_blank" rel="noopener">如何解决该错误</a></p>
+<h2 id="添加站内搜索"><a href="#添加站内搜索" class="headerlink" title="添加站内搜索"></a>添加站内搜索</h2><p>在 <a href="https://swiftype.com/" target="_blank" rel="noopener">swiftype</a> 网站上注册，填写个人网站信息，直到生成 swiftype_key。之后将其，添加到 <code>NexT</code>主题中的 <code>_config.yml</code> 中。<br>参考 <a href="http://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="noopener"><code>NexT</code> 第三方服务集成</a></p>
+<h2 id="网站访问计数"><a href="#网站访问计数" class="headerlink" title="网站访问计数"></a>网站访问计数</h2><p><code>NexT</code> 主题中已经集成了不蒜子，可以直接修改主题配置文件中一下部分，将 <code>false</code> 改为 <code>true</code> 即可。另可进行个性化配置，详见 <code>NexT</code> <a href="http://theme-next.iissnan.com/third-party-services.html" target="_blank" rel="noopener">说明文档</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  <span class="comment"># count values only if the other configs are false</span></span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  <span class="comment"># custom uv span for the whole site</span></span><br><span class="line">  site_uv: <span class="literal">true</span></span><br><span class="line">  site_uv_header: &lt;i class=<span class="string">"fa fa-users"</span>&gt;&lt;/i&gt;</span><br><span class="line">  site_uv_footer:</span><br><span class="line">  <span class="comment"># custom pv span for the whole site</span></span><br><span class="line">  site_pv: <span class="literal">true</span></span><br><span class="line">  site_pv_header: &lt;i class=<span class="string">"fa fa-eye"</span>&gt;&lt;/i&gt;</span><br><span class="line">  site_pv_footer:</span><br><span class="line">  <span class="comment"># custom pv span for one page only</span></span><br><span class="line">  page_pv: <span class="literal">true</span></span><br><span class="line">  page_pv_header: &lt;i class=<span class="string">"fa fa-file-o"</span>&gt;&lt;/i&gt;</span><br><span class="line">  page_pv_footer:</span><br></pre></td></tr></table></figure>
+<h3 id="标签块"><a href="#标签块" class="headerlink" title="标签块"></a>标签块</h3><p><a href="https://hexo.io/zh-cn/docs/tag-plugins.html" target="_blank" rel="noopener">解决图片大小等问题</a></p>
+<h4 id="插入指定大小图片"><a href="#插入指定大小图片" class="headerlink" title="插入指定大小图片"></a>插入指定大小图片</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% img [class names] /path/to/image [width] [height] [title text [alt text]] %&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>基本使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote [author[, <span class="built_in">source</span>]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<p>引用书籍</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">Do not just seek happiness <span class="keyword">for</span> yourself. Seek happiness <span class="keyword">for</span> all. Through kindness. Through mercy.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><h3 id="引用-1"><a href="#引用-1" class="headerlink" title="引用"></a>引用</h3><p>使用 <code>&gt;</code> 符号即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; Quotation</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Quotation</p>
+</blockquote>
+<p>假设要提供一个连接以供访客下载 book.pdf。首先在 <code>./source</code> 下创建文件夹 <code>book</code>， 并将 book.pdf 添加进去。在编写 markdown 文档时使用<code>[Download my book!](/books/book.pdf)</code>。或者使用如下代码以提供给一个下载按钮：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">&lt;button onclick=&quot;window.open(&apos;/books/book.pdf&apos;)&quot;&gt;Download&lt;/button&gt;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://stackoverflow.com/questions/11620698/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript" target="_blank" rel="noopener">How to trigger a file download when clicking an html button or javascript</a><br><a href="https://github.com/hexojs/hexo/issues/1724" target="_blank" rel="noopener">How to provide files users can download?</a></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://www.xdnote.com/wordpress-to-hexo/" target="_blank" rel="noopener">Wordpress to hexo 搬家记录</a><br><a href="http://www.xiaocaoge.com/migrate-to-hexo-from-wordpress.html" target="_blank" rel="noopener">从WordPress迁移博客到Hexo</a><br><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="noopener">hexo你的博客</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本文写的较为简洁，如有疑问，敬请留言。</p>
+<p>This is it.<br>Cheers!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># Hexo</a>
+          
+            <a href="/tags/blog/" rel="tag"># Blog</a>
+          
+            <a href="/tags/markdown/" rel="tag"># Markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/how-to-edit-path-on-mac/" rel="next" title="How to edit PATH on Mac">
+                <i class="fa fa-chevron-left"></i> How to edit PATH on Mac
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/how-to-configure-ubuntu/" rel="prev" title="Ubuntu 安装使用">
+                Ubuntu 安装使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Jialun Liu" />
+            
+              <p class="site-author-name" itemprop="name">Jialun Liu</p>
+              <p class="site-description motion-element" itemprop="description">Jialun Liu's blog | CFD | Ship Manoeuvrability |</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装准备"><span class="nav-number">1.</span> <span class="nav-text">安装准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Hexo"><span class="nav-number">1.1.</span> <span class="nav-text">安装 Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress-迁移到-Hexo"><span class="nav-number">2.</span> <span class="nav-text">WordPress 迁移到 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导出-WordPress"><span class="nav-number">2.1.</span> <span class="nav-text">导出 WordPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Hexo-插件"><span class="nav-number">2.2.</span> <span class="nav-text">安装 Hexo 插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-命令"><span class="nav-number">3.</span> <span class="nav-text">Hexo 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完整命令"><span class="nav-number">3.1.</span> <span class="nav-text">完整命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷命令"><span class="nav-number">3.2.</span> <span class="nav-text">快捷命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装主题"><span class="nav-number">4.</span> <span class="nav-text">安装主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-NexT-主题"><span class="nav-number">4.1.</span> <span class="nav-text">安装 NexT 主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提示"><span class="nav-number">4.2.</span> <span class="nav-text">提示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站发布"><span class="nav-number">5.</span> <span class="nav-text">网站发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-GitHub"><span class="nav-number">5.1.</span> <span class="nav-text">注册 GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装发布到-GitHub-的插件"><span class="nav-number">5.2.</span> <span class="nav-text">安装发布到 GitHub 的插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FTP"><span class="nav-number">5.3.</span> <span class="nav-text">FTP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configure-RSS-and-sitemap"><span class="nav-number">6.</span> <span class="nav-text">Configure RSS and sitemap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RSS"><span class="nav-number">6.1.</span> <span class="nav-text">RSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-Sitemap"><span class="nav-number">7.</span> <span class="nav-text">添加 Sitemap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写作"><span class="nav-number">8.</span> <span class="nav-text">写作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写作命令"><span class="nav-number">8.1.</span> <span class="nav-text">写作命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加图片"><span class="nav-number">8.2.</span> <span class="nav-text">添加图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对路径添加图片的方法"><span class="nav-number">8.2.1.</span> <span class="nav-text">绝对路径添加图片的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相对路径添加图片的方法"><span class="nav-number">8.2.2.</span> <span class="nav-text">相对路径添加图片的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制图片大小"><span class="nav-number">8.2.3.</span> <span class="nav-text">控制图片大小</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加新-layout"><span class="nav-number">8.3.</span> <span class="nav-text">添加新 layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章摘要"><span class="nav-number">8.4.</span> <span class="nav-text">文章摘要</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方支持"><span class="nav-number">9.</span> <span class="nav-text">第三方支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LaTeX-数学公式"><span class="nav-number">9.1.</span> <span class="nav-text">LaTeX 数学公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统"><span class="nav-number">10.</span> <span class="nav-text">评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-RSS"><span class="nav-number">11.</span> <span class="nav-text">添加 RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加站内搜索"><span class="nav-number">12.</span> <span class="nav-text">添加站内搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网站访问计数"><span class="nav-number">13.</span> <span class="nav-text">网站访问计数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#标签块"><span class="nav-number">13.1.</span> <span class="nav-text">标签块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入指定大小图片"><span class="nav-number">13.1.1.</span> <span class="nav-text">插入指定大小图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用"><span class="nav-number">13.1.2.</span> <span class="nav-text">引用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown"><span class="nav-number">14.</span> <span class="nav-text">Markdown</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用-1"><span class="nav-number">14.1.</span> <span class="nav-text">引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">15.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">16.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-ship"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jialun Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

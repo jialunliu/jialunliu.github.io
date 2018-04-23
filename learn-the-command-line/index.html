@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/uploads/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/uploads/manifest.json">
+
+
+  <meta name="msapplication-config" content="/uploads/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Terminal,Shell,Bash," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jialun Liu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="The command line is a text interface for the computers’ operating system. It is important and convenient to use command window for coding, especially on Unix systems. This post is a study note from th">
+<meta name="keywords" content="Terminal,Shell,Bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Use Command Line">
+<meta property="og:url" content="http://jialunliu.com/learn-the-command-line/index.html">
+<meta property="og:site_name" content="Jialun Liu">
+<meta property="og:description" content="The command line is a text interface for the computers’ operating system. It is important and convenient to use command window for coding, especially on Unix systems. This post is a study note from th">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2016-11-22T10:41:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Use Command Line">
+<meta name="twitter:description" content="The command line is a text interface for the computers’ operating system. It is important and convenient to use command window for coding, especially on Unix systems. This post is a study note from th">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jialunliu.com/learn-the-command-line/"/>
+
+
+
+
+
+  <title>How to Use Command Line | Jialun Liu</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jialun Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Apply CFD Tools into Ship Manoeuvirng Simulations by Python 3</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-research">
+          <a href="/research/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-university"></i> <br />
+            
+            research
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jialunliu.com/learn-the-command-line/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jialun Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jialun Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">How to Use Command Line</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-14T21:04:17+08:00">
+                2016-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>The command line is a text interface for the computers’ operating system. It is important and convenient to use command window for coding, especially on Unix systems. This post is a study note from the course of <em>Learn the Command Line</em>, which is provided by <a href="Manoeuvring_Model"><em>codecademy</em></a>. Enjoy reading!</p>
+<a id="more"></a>
+<h2 id="Frequently-used-commands"><a href="#Frequently-used-commands" class="headerlink" title="Frequently used commands"></a>Frequently used commands</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">pwd</span> <span class="comment"># Print working directory.</span></span><br><span class="line">ls <span class="comment"># List all files and directories.</span></span><br><span class="line"><span class="built_in">cd</span> <span class="comment"># Change directory.</span></span><br><span class="line"><span class="built_in">cd</span> .. <span class="comment"># Move up one directory.</span></span><br><span class="line">mkdir <span class="comment"># Make a new directory.</span></span><br><span class="line">touch <span class="comment"># Create a new file inside the working directory.</span></span><br></pre></td></tr></table></figure>
+<h2 id="Navigating-the-file-system"><a href="#Navigating-the-file-system" class="headerlink" title="Navigating the file system"></a>Navigating the file system</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -a <span class="comment"># List all contents, including hidden files and directories.</span></span><br><span class="line">ls -l <span class="comment"># List all contents of a directory in long format.</span></span><br><span class="line">ls -t <span class="comment"># Order files and directories by the time they were last modified.</span></span><br></pre></td></tr></table></figure>
+<p>Combine the above three commands, i.e. list all contents, including hidden files and directories, in long format, ordered by the date and time they were last modified.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -alt</span><br></pre></td></tr></table></figure>
+<h2 id="Manipulating-the-files"><a href="#Manipulating-the-files" class="headerlink" title="Manipulating the files"></a>Manipulating the files</h2><h3 id="Copying"><a href="#Copying" class="headerlink" title="Copying"></a>Copying</h3><p>To copy a file into a directory, use <code>cp</code> with the source file as the first argument and the destination directory as the second argument.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp <span class="comment"># Copy files or directories.</span></span><br></pre></td></tr></table></figure>
+<p>To copy multiple files into a directory, use <code>cp</code> with a list of source files as the first arguments, and the destination directory as the last argument.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp this_file.txt this_dir cp this_file.txt that_file this_dir</span><br></pre></td></tr></table></figure>
+<p>Copy all files in the working directory into <code>this_dir</code>. <code>*</code> is called <em>wildcards</em>, which is used to select group of files.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp * this_dir</span><br></pre></td></tr></table></figure>
+<p>Copy all files in the working directory starting with “abc” and ending with “.txt” into <code>this_dir</code>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp abc*.txt this_dir</span><br></pre></td></tr></table></figure>
+<h3 id="Moving"><a href="#Moving" class="headerlink" title="Moving"></a>Moving</h3><p>Use <code>mv</code> to move files. Using <code>mv</code> is as the same as using <code>cp</code>.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mv old_name.txt new_name.txt <span class="comment"># To rename a file, use `mv` with the old file as the first argument and the new file as the second argument.</span></span><br></pre></td></tr></table></figure>
+<h3 id="Removing"><a href="#Removing" class="headerlink" title="Removing"></a>Removing</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm some_file.txt <span class="comment"># Delete files and directories.</span></span><br><span class="line">rm -r some_dir <span class="comment"># Delete a directory and all of its child directories. `-r` stands for "recursive".</span></span><br></pre></td></tr></table></figure>
+<h2 id="Redirecting-input-and-output"><a href="#Redirecting-input-and-output" class="headerlink" title="Redirecting input and output"></a>Redirecting input and output</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"Hello"</span> <span class="comment"># The `echo` command accepts the string "Hello" as *standard input*, and echoes the string "Hello" back to the terminal as *standard output*.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><em>standard input</em>, abbreviated as <code>stdin</code>, is information inputted into the terminal through the keyboard or input device.</li>
+<li><em>standard output</em>, abbreviated as <code>stdout</code>, is the information outputted after a process is run.</li>
+<li><em>standard error</em>, abbreviated as <code>stderr</code>, is an error message outputted by a failed process.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"Hello"</span> &gt; hello.txt <span class="comment"># The `&gt;` command redirects the standard output to a file.</span></span><br></pre></td></tr></table></figure>
+<p>The <code>cat</code> command outputs the contents of a file to the terminal.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat hello.txt</span><br></pre></td></tr></table></figure>
+<p>The ‘&gt;’ command takes the standard output of the command on the left, and redirects it to the file on the right. Note that <code>&gt;</code> overwrites all original content.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat hello.txt &gt; goodbye.txt</span><br></pre></td></tr></table></figure>
+<p>The <code>&gt;&gt;</code> command takes the standard output of the command on the left and appends (adds) it to the file on the right.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat hello.txt &gt;&gt; goodbye.txt</span><br></pre></td></tr></table></figure>
+<p>The <code>&lt;</code> command takes the standard input from the file on the right and inputs it into the program on the left.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat &lt; goodbye.txt</span><br></pre></td></tr></table></figure>
+<p>The <code>|</code> command is a “pip”. The <code>|</code> takes the standard output of the command on the left, and pipes it as standard input to the command on the right. It can be regarded as “command to command” redirection. The <code>wc</code> command outputs the number of lines, words, and characters in <code>hello.txt</code>, respectively.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat hello.txt | wc</span><br></pre></td></tr></table></figure>
+<p>Multiple <code>|</code> commands can be chained together.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat hello.txt | wc | cat &gt; goodbye.txt</span><br></pre></td></tr></table></figure>
+<p>The <code>sort</code> command takes the standard input and orders it alphabetically for the standard output.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sort hello.txt</span><br></pre></td></tr></table></figure>
+<p>The <code>uniq</code> command stands for “unique” and filters out adjacent, duplicate lines in a file. Note: only adjacent duplicate lines can be filtered.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uniq hello.txt</span><br></pre></td></tr></table></figure>
+<p>It is more efficient to use <code>sort</code> first, then use <code>uniq</code>, which first orders the lines in alphabetically and then filter the adjacent duplicate lines.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sort hello.txt | uniq</span><br></pre></td></tr></table></figure>
+<p>The <code>grep</code> command stands for “global regular expression print”. It searches files for lines that match a pattern and returns the results. It is also case sensitive.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep sth hello.txt</span><br></pre></td></tr></table></figure>
+<p>The <code>grep -i</code> command enables the command to be case insensitive. Note: “regular expression” means “正则表达式”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep -i sth hello.txt</span><br></pre></td></tr></table></figure>
+<p>The <code>grep -R</code> command searches all files in a directory and outputs filenames and lines containing matched results. <code>-R</code> means “recursive”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep -R some_dir</span><br></pre></td></tr></table></figure>
+<p>The <code>grep -Rl</code> command searches all files in a directory and outputs only filenames with matched results. <code>-R</code> stands for “recursive” and <code>l</code> stands for “files with matches”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep -Rl some_dir</span><br></pre></td></tr></table></figure>
+<p>The <code>sed</code> command stands for “stream editor”. It accepts standard input and modifies it based on an expression, before displaying it as output data. It is similar to “find and replace”.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">'s/snow/rain/'</span> hello.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>s</code> stands for “substitution”. It is always used when using <code>sed</code> for substitution.</li>
+<li><code>snow</code> stands for the search string, the text to find.</li>
+<li><code>rain</code> stands for the replacement string, the text to add in place.</li>
+</ul>
+<p><em>Redirection</em> reroutes standard input, standard output, and standard error. The common redirection commands are:</p>
+<ul>
+<li><code>&gt;</code> redirects standard output of a command to a file, overwriting previous content.</li>
+<li><code>&gt;&gt;</code> redirects standard output of a command to a file, appending new content to old content.</li>
+<li><code>&lt;</code> redirects standard input to a command.</li>
+<li><code>|</code> redirects standard output of a command to another command.</li>
+<li><code>sort</code> sorts lines of text alphabetically.</li>
+<li><code>uniq</code> filters duplicate, adjacent lines of text.</li>
+<li><code>grep</code> searches for a text pattern and outputs it.</li>
+<li><code>sed</code> searches for a text pattern, modifies it, and outputs it.</li>
+</ul>
+<h2 id="Configuring-environment"><a href="#Configuring-environment" class="headerlink" title="Configuring environment"></a>Configuring environment</h2><ul>
+<li>The <em>environment</em> refers to the preferences and settings of the current user.</li>
+<li><em>environment</em> variables are variables that can be used across commands and programs and hold information about the environment.</li>
+<li>The <em>nano</em> editor is a command line text editor used to configure the <em>environment</em>.</li>
+<li><code>nano</code> is a command line text editor. It works just like a desktop editor but only accepts keyboard input.</li>
+<li><code>nano hello.txt</code> opens a new text file named “hello.txt” in the nano text editor. In the bottom of the editor window, the <code>^</code> stands for the <code>Ctrl</code> key.<ul>
+<li><code>Ctrl</code> + <code>O</code> saves a file. “O” stands for output.</li>
+<li><code>Ctrl</code> + <code>X</code> exits the nano. “X” stands for exit.</li>
+<li><code>Ctrl</code> + <code>G</code> opens a help menu.</li>
+<li><code>clear</code> clears the terminal window, moving the command prompt to the top of the screen.</li>
+</ul>
+</li>
+<li><code>echo $PATH</code> returns the default path. <code>PATH</code> is an environment variable that stores a list of directories separated by a colon.</li>
+<li><code>echo $HOME</code> returns the default home directory.</li>
+<li><code>env</code> stands for “environment”, and returns a list of the environment variables for the current user.</li>
+<li><code>~/.bash_profile</code> and <code>~/.zshrc</code> are the profiles for <code>bash</code> and <code>zsh</code> respectively.</li>
+<li><code>export VARIABLE=&quot;value&quot;</code> sets and exports an environment variable.</li>
+<li><code>USER</code> is the name of the current user.</li>
+<li><code>PS1</code> is the command prompt, such as <code>$</code> and <code>&gt;&gt;</code>.</li>
+<li><code>HOME</code> is the home directory. It is usually not customised.</li>
+<li><code>PATH</code> returns a colon separated list of file paths. It is customised in advanced cases.</li>
+<li><code>env</code> returns a list of environment variables.</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.instapaper.com/read/808907369" target="_blank" rel="noopener">List of Command Line Commands</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/terminal/" rel="tag"># Terminal</a>
+          
+            <a href="/tags/shell/" rel="tag"># Shell</a>
+          
+            <a href="/tags/bash/" rel="tag"># Bash</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/how-to-use-OpenFOAM-with-zsh/" rel="next" title="How to Use OpenFOAM with ZSH">
+                <i class="fa fa-chevron-left"></i> How to Use OpenFOAM with ZSH
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/reading-plan-2017/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.jpg"
+                alt="Jialun Liu" />
+            
+              <p class="site-author-name" itemprop="name">Jialun Liu</p>
+              <p class="site-description motion-element" itemprop="description">Jialun Liu's blog | CFD | Ship Manoeuvrability |</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Frequently-used-commands"><span class="nav-number">1.</span> <span class="nav-text">Frequently used commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigating-the-file-system"><span class="nav-number">2.</span> <span class="nav-text">Navigating the file system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manipulating-the-files"><span class="nav-number">3.</span> <span class="nav-text">Manipulating the files</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Copying"><span class="nav-number">3.1.</span> <span class="nav-text">Copying</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Moving"><span class="nav-number">3.2.</span> <span class="nav-text">Moving</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Removing"><span class="nav-number">3.3.</span> <span class="nav-text">Removing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redirecting-input-and-output"><span class="nav-number">4.</span> <span class="nav-text">Redirecting input and output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configuring-environment"><span class="nav-number">5.</span> <span class="nav-text">Configuring environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-ship"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jialun Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
